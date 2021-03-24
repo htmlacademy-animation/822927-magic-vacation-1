@@ -117,10 +117,10 @@
     margin: 0;
     opacity: 0;
     transform: translateY(23px);
-    animation: fadeIn .6s ease .1s forwards;
+    animation: fadeInGuess .6s ease .1s forwards;
   }
 
-  @keyframes fadeIn {
+  @keyframes fadeInGuess {
     0% {
       opacity: 0;
       transform: translateY(23px);
