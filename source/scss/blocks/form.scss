@@ -44,16 +44,8 @@
   border: 0;
   border-radius: 3rem;
   outline: none;
-  animation: inputSlide .4s ease forwards;
-
-  @keyframes inputSlide {
-    0% {
-      width: 0;
-    }
-    100% {
-      width: calc(100% - 21rem);
-    }
-  }
+  transition: width .55s ease-in-out;
+  transform-origin: right;
 
   &:focus {
     border: 1px solid $c-purple;
@@ -87,6 +79,10 @@
     height: 4rem;
     font-size: 1.6rem;
   }
+}
+
+.active .form__field {
+  width: calc(100% - 21rem);
 }
 
 .form__button {
