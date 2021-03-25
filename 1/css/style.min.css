@@ -1462,15 +1462,8 @@ img {
   border: 0;
   border-radius: 3rem;
   outline: none;
-  animation: inputSlide 0.4s ease forwards;
-}
-@keyframes inputSlide {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: calc(100% - 21rem);
-  }
+  transition: width 0.55s ease-in-out;
+  transform-origin: right;
 }
 .form__field:focus {
   border: 1px solid #a67ee5;
@@ -1507,6 +1500,10 @@ img {
     height: 4rem;
     font-size: 1.6rem;
   }
+}
+
+.active .form__field {
+  width: calc(100% - 21rem);
 }
 
 .form__button {
@@ -1862,17 +1859,11 @@ img {
   margin: 0;
   opacity: 0;
   transform: translateY(23px);
-  animation: fadeInGuess 0.6s ease 0.1s forwards;
+  transition: all 0.5s ease;
 }
-@keyframes fadeInGuess {
-  0% {
-    opacity: 0;
-    transform: translateY(23px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.active .intro__message p {
+  opacity: 1;
+  transform: translateY(0);
 }
 @media (min-width: 2000px) {
   .intro__message svg {
@@ -3615,14 +3606,17 @@ img {
     padding: 5rem 2rem 0 5rem;
   }
 }
-.slider__item:nth-child(odd).swiper-slide-active .slider__item-text {
-  animation: sliderItemText 0.3s ease-in 0.35s forwards;
+.active .slider__item:nth-child(odd).swiper-slide-active .slider__item-text {
+  opacity: 1;
+  transform: translateX(0);
 }
-.slider__item:nth-child(even).swiper-slide-next .slider__item-text {
-  animation: sliderItemText 0.3s ease-in 0.47s forwards;
+.active .slider__item:nth-child(even).swiper-slide-next .slider__item-text {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.35s;
 }
 @media (max-width: 768px) and (orientation: landscape) {
-  .slider__item:nth-child(even).swiper-slide-next .slider__item-text {
+  .active .slider__item:nth-child(even).swiper-slide-next .slider__item-text {
     align-self: flex-start;
   }
 }
@@ -3643,16 +3637,6 @@ img {
 @media (max-width: 768px) and (orientation: landscape) {
   .slider__item:nth-child(even) .slider__item-text {
     margin-top: auto;
-  }
-}
-@keyframes sliderItemText {
-  0% {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
   }
 }
 
@@ -3692,6 +3676,7 @@ img {
   line-height: 2rem;
   opacity: 0;
   transform: translateX(30px);
+  transition: all 0.3s ease-in 0.2s;
 }
 @media (min-width: 2000px) {
   .slider__item-text {
