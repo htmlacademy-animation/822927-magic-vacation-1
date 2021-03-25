@@ -115,6 +115,16 @@
 
   p {
     margin: 0;
+    opacity: 0;
+    transform: translateY(23px);
+    transition: all .5s ease;
+  }
+
+  .active & {
+    p {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   svg {

@@ -36,18 +36,27 @@
     padding: 5rem 2rem 0 5rem;
   }
 
-  &:nth-child(even) {
+  .active &:nth-child(odd).swiper-slide-active {
     .slider__item-text {
-      align-self: flex-end;
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
 
+  .active &:nth-child(even).swiper-slide-next {
+    .slider__item-text {
+      opacity: 1;
+      transform: translateX(0);
+      transition-delay: .35s;
       @media (max-width: $mobile) and (orientation: landscape) {
         align-self: flex-start;
       }
     }
   }
 
-  &:nth-child(2) {
+  &:nth-child(even) {
     .slider__item-text {
+      align-self: flex-end;
       margin-top: 7.8rem;
 
       @media (min-width: $stop-scaling) {
@@ -96,6 +105,9 @@
   max-width: 34rem;
   font-size: 1.8rem;
   line-height: 2rem;
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all .3s ease-in .2s;
 
   @media (min-width: $stop-scaling) {
     margin-top: 36px;
