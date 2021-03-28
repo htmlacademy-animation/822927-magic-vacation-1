@@ -35,6 +35,9 @@
   padding: 1rem 0;
   width: 10rem;
   color: $c-light;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all .7s cubic-bezier(0, .58, .52, .99);
 
   @media (min-width: $stop-scaling) {
     top: -5px;
@@ -69,6 +72,11 @@
     width: 100%;
     height: auto;
   }
+}
+
+.loaded .page-header__logo {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .page-header__toggler {
@@ -241,7 +249,8 @@
     display: block;
     color: inherit;
     padding: 0 0.5em 0.5em;
-    transition: color .3s ease-in-out;
+    opacity: 0;
+    transition: opacity 1.8s cubic-bezier(0, .58, .52, .99) .2s, color .3s ease-in-out;
 
     &::after {
       content: "";
@@ -270,7 +279,18 @@
 
     &.active {
       &::after {
-        transform: scaleX(1);
+        transform: scaleX(0);
+      }
+    }
+
+    .loaded & {
+      opacity: 1;
+
+      &.active {
+        &::after {
+          transform: scaleX(1);
+          transition-delay: .3s;
+        }
       }
     }
 
