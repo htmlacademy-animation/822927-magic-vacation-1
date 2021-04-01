@@ -3177,6 +3177,9 @@ img {
 .screen--hidden {
   display: none;
 }
+.screen .screen--story.screen--hidden {
+  display: block;
+}
 @media (max-width: 1024px) and (orientation: portrait) {
   .screen {
     min-height: calc(var(--vh, 1vh) * 100);
@@ -3586,19 +3589,19 @@ img {
   background-color: #5f458c;
 }
 
-.screen--decoration {
+.curtain {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   height: 100%;
   background-color: #5f458c;
-  z-index: 1;
   transform: translateY(100%);
   transition: transform 0.38s ease;
 }
 
-.screen--prizes.active ~ .screen--decoration {
+.curtain.curtain--active {
+  z-index: 1;
   transform: translateY(0);
 }
 
