@@ -40,14 +40,37 @@ export default class FullPageScroll {
   }
 
   changeVisibilityDisplay() {
+    let isCurtainActive = false;
+    const curtain = document.querySelector(`.curtain`);
+
     this.screenElements.forEach((screen) => {
-      screen.classList.add(`screen--hidden`);
-      screen.classList.remove(`active`);
+      if (screen.classList.contains(`screen--story`) && screen.classList.contains(`active`) && this.screenElements[this.activeScreen].classList.contains(`screen--prizes`)) {
+        curtain.classList.add(`curtain--active`);
+        isCurtainActive = true;
+        setTimeout(() => {
+          curtain.classList.remove(`curtain--active`);
+        }, 500);
+        setTimeout(() => {
+          screen.classList.add(`screen--hidden`);
+          screen.classList.remove(`active`);
+        }, 450);
+      } else {
+        screen.classList.add(`screen--hidden`);
+        screen.classList.remove(`active`);
+      }
     });
-    this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
-    setTimeout(() => {
-      this.screenElements[this.activeScreen].classList.add(`active`);
-    }, 100);
+
+    if (isCurtainActive) {
+      setTimeout(() => {
+        this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
+        this.screenElements[this.activeScreen].classList.add(`active`);
+      }, 450);
+    } else {
+      this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
+      setTimeout(() => {
+        this.screenElements[this.activeScreen].classList.add(`active`);
+      }, 100);
+    }
   }
 
   changeActiveMenuItem() {
