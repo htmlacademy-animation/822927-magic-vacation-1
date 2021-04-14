@@ -256,6 +256,12 @@ $delayOffset: 0.2s;
   bottom: 6rem;
   right: 5.6rem;
 
+  animation-name: buttonGoAppearance;
+  animation-duration: .4s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: backwards;
+  animation-delay: 1s;
+
   @media (min-width: $stop-scaling) {
     bottom: 60px;
     right: 56px;
@@ -276,3 +282,21 @@ $delayOffset: 0.2s;
     right: 1.5rem;
   }
 }
+
+@keyframes buttonGoAppearance {
+  from {
+    width: 60px;
+    opacity: 0;
+    color: transparent;
+  }
+  1% {
+    width: 60px;
+    opacity: 1;
+    color: transparent;
+  }
+  87% {
+    width: 178.703px;
+    color: transparent;
+  }
+}
+
